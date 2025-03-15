@@ -19,7 +19,7 @@
         {
           "label": "Run QEMU",
           "type": "shell",
-          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-aarch64 -M imx8mp-evk -cpu cortex-a53 -m 3G -kernel ${workspaceFolder}/arch/arm64/boot/Image -dtb ${workspaceFolder}/arch/arm64/boot/dts/freescale/imx8mp-evk.dtb -serial none -serial vc -append \"loglevel=8 dyndbg=\\\"file * +p\\\"\" -trace memory_region_ops_* -s -S",
+          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-aarch64 -M imx8mp-evk -cpu cortex-a53 -m 3G -kernel ${workspaceFolder}/arch/arm64/boot/Image -dtb ${workspaceFolder}/arch/arm64/boot/dts/freescale/imx8mp-evk.dtb -serial none -serial vc -append \"loglevel=8 dyndbg=\\\"file *____* +p\\\"\" -trace memory_region_ops_* -s -S",
           "dependsOn": ["Build"],
           "isBackground": true,
           "problemMatcher": [
