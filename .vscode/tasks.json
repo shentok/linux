@@ -6,7 +6,7 @@
         {
           "label": "Build",
           "type": "shell",
-          "command": "make ARCH=arm CROSS_COMPILE=arm-none-eabi- -j $(nproc)",
+          "command": "make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j $(nproc) Image dtbs",
           "problemMatcher": {
             "base": "$gcc",
             "fileLocation": ["relative", "${workspaceFolder}"]
@@ -19,7 +19,7 @@
         {
           "label": "Run QEMU",
           "type": "shell",
-          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-aarch64 -M imx25-pdk -m 512M -kernel ${workspaceFolder}/arch/arm/boot/zImage -initrd /home/arch/Projects/buildroot/src/output/images/rootfs.cpio -dtb ${workspaceFolder}/arch/arm/boot/dts/nxp/imx/imx25-pdk.dtb -append \"root=/dev/ram loglevel=8 dyndbg=\\\"file *____* +p\\\"\" -trace imx_serial_* -s -S",
+          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-aarch64 -M imx8mp-evk -cpu cortex-a53 -m 3G -kernel ${workspaceFolder}/arch/arm64/boot/Image -dtb ${workspaceFolder}/arch/arm64/boot/dts/freescale/imx8mp-evk.dtb -serial none -serial vc -append \"loglevel=8 dyndbg=\\\"file *____* +p\\\"\" -trace memory_region_ops_* -s -S",
           "dependsOn": ["Build"],
           "isBackground": true,
           "problemMatcher": [
