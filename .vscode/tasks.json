@@ -19,7 +19,7 @@
         {
           "label": "Run QEMU",
           "type": "shell",
-          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-aarch64 -M imx8mp-evk -cpu cortex-a53 -m 3G -kernel ${workspaceFolder}/arch/arm64/boot/Image -dtb ${workspaceFolder}/arch/arm64/boot/dts/freescale/imx8mp-evk.dtb -serial none -serial vc -append \"root=/dev/mmcblk1p1 loglevel=8 dyndbg=\\\"file *____* +p\\\"\" -drive file=/home/arch/Documents/imx8mpevk/sdcard.img,if=sd,format=raw,bus=1 -trace memory_region_ops_* -trace \"*caam*\" -icount shift=2 -s -S",
+          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-aarch64 -M imx8mp-evk -m 3G -kernel ${workspaceFolder}/arch/arm64/boot/Image -dtb ${workspaceFolder}/arch/arm64/boot/dts/freescale/imx8mp-evk.dtb -serial none -serial vc -append \"root=/dev/mmcblk1p1 loglevel=8 dyndbg=\\\"file *____* +p\\\"\" -drive file=/home/arch/Documents/imx8mpevk/sdcard.img,if=sd,format=raw,bus=1 -netdev user,id=net0 -device e1000,netdev=net0 -trace e1000_* -d guest_errors -s -S",
           "dependsOn": ["Build"],
           "isBackground": true,
           "problemMatcher": [
