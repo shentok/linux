@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/vmlinux",
             "cwd": "${workspaceFolder}",
-            "miDebuggerPath": "aarch64-linux-gnu-gdb",
+            "miDebuggerPath": "gdb",
             "miDebuggerServerAddress": "localhost:1234",
             "setupCommands": [
                 {

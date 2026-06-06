@@ -6,7 +6,7 @@
         {
           "label": "Build",
           "type": "shell",
-          "command": "make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j $(nproc) Image dtbs",
+          "command": "make ARCH=arm CROSS_COMPILE=arm-none-eabi- -j $(nproc)",
           "problemMatcher": {
             "base": "$gcc",
             "fileLocation": ["relative", "${workspaceFolder}"]
@@ -19,7 +19,7 @@
         {
           "label": "Run QEMU",
           "type": "shell",
-          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-aarch64 -M imx8mp-evk -m 6G -kernel ${workspaceFolder}/arch/arm64/boot/Image -dtb ${workspaceFolder}/arch/arm64/boot/dts/freescale/imx8mp-evk.dtb -serial none -serial vc -append \"root=/dev/mmcblk1p1 loglevel=8 dyndbg=\\\"file *____* +p\\\"\" -drive file=/home/arch/Projects/buildroot/src/output/images/sdcard.img,if=sd,format=raw,bus=1 -trace flexcan_* -trace memory_region_ops__* -d guest_errors -s -S",
+          "command": "echo 'QEMU RTOSdemo started'; ~/Projects/qemu/build-full/qemu-system-arm -M imx53-qsb -kernel ${workspaceFolder}/arch/arm/boot/zImage -dtb ${workspaceFolder}/arch/arm/boot/dts/nxp/imx/imx53-qsb.dtb -serial vc -trace memory_region_ops__* -s -S -trace fsl_tzic_*",
           "dependsOn": ["Build"],
           "isBackground": true,
           "problemMatcher": [
