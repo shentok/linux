@@ -19,7 +19,7 @@
         {
           "label": "Run QEMU",
           "type": "shell",
-          "command": "echo 'QEMU RTOSdemo started'; ~/Projekte/qemu/build-full/qemu-system-arm -M imx53-qsb -kernel ${workspaceFolder}/arch/arm/boot/zImage -dtb ${workspaceFolder}/arch/arm/boot/dts/nxp/imx/imx53-kp-hsc.dtb -append \"root=/dev/mmcblk2p2 console=ttymxc0\" -drive file=/home/shentey/Documents/imx53-qsb/sdcard.img,if=sd,bus=2,format=raw,id=mmcblk2,snapshot=on -drive if=none,id=usbstick,format=raw,file=/home/shentey/Documents/imx53-qsb/rootfs.ext2,snapshot=on -device usb-storage,drive=usbstick,bus=usb-bus.0 -s -S -trace *usb*",
+          "command": "echo 'QEMU RTOSdemo started'; ~/Projekte/qemu/build-full/qemu-system-arm -M mcimx7d-sabre -kernel ${workspaceFolder}/arch/arm/boot/zImage -dtb ${workspaceFolder}/arch/arm/boot/dts/nxp/imx/imx7d-sdb.dtb -append \"root=/dev/mmcblk2p1\" -drive file=/home/shentey/Documents/imx7d-sdb/sdcard.img,if=none,format=raw,id=mmcblk2,snapshot=on -device sd-card,drive=mmcblk2 -drive if=none,id=usbstick,format=raw,file=/home/shentey/Documents/imx7d-sdb/rootfs.ext2,snapshot=on -device usb-storage,drive=usbstick,bus=usb-bus.0 -S -s",
           "dependsOn": ["Build"],
           "isBackground": true,
           "problemMatcher": [
